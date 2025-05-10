@@ -86,7 +86,7 @@ tasks:
     cmds:
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/generate_tsv.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/generate_tsv.py \
                 --dataset phoenix \
                 --path {{.PHOENIX_DIR}} \
                 --tsv-out {{.DATA_DIR}}/phoenix.mediapipe.train.tsv \
@@ -96,7 +96,7 @@ tasks:
                 --translation-lang de
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/generate_tsv.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/generate_tsv.py \
                 --dataset phoenix \
                 --path {{.PHOENIX_DIR}} \
                 --tsv-out {{.DATA_DIR}}/phoenix.mediapipe.dev.tsv \
@@ -106,7 +106,7 @@ tasks:
                 --translation-lang de
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/generate_tsv.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/generate_tsv.py \
                 --dataset phoenix \
                 --path {{.PHOENIX_DIR}} \
                 --tsv-out {{.DATA_DIR}}/phoenix.mediapipe.test.tsv \
@@ -140,7 +140,7 @@ tasks:
     cmds:
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/train_spm.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/train_spm.py \
                 --tsv-file {{.DATA_DIR}}/phoenix.mediapipe.train.tsv \
                 --spm-prefix {{.DATA_DIR}}/phoenix.unigram{{.VOCAB_SIZE}} \
                 --vocab-size {{.VOCAB_SIZE}} \
@@ -442,7 +442,7 @@ tasks:
     cmds:
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/generate_tsv.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/generate_tsv.py \
                 --dataset wmt_slt22 \
                 --path {{.WMTSLT22_DIR}} \
                 --tsv-out {{.DATA_DIR}}/wmtslt22.mediapipe.train_focusnews.tsv \
@@ -452,7 +452,7 @@ tasks:
                 --translation-lang de
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/generate_tsv.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/generate_tsv.py \
                 --dataset wmt_slt22 \
                 --path {{.WMTSLT22_DIR}} \
                 --tsv-out {{.DATA_DIR}}/wmtslt22.mediapipe.train_srf.tsv \
@@ -462,7 +462,7 @@ tasks:
                 --translation-lang de
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/generate_tsv.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/generate_tsv.py \
                 --dataset wmt_slt22 \
                 --path {{.WMTSLT22_DIR}} \
                 --tsv-out {{.DATA_DIR}}/wmtslt22.mediapipe.train_focusnewsandsrf.tsv \
@@ -472,7 +472,7 @@ tasks:
                 --translation-lang de
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/generate_tsv.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/generate_tsv.py \
                 --dataset wmt_slt22 \
                 --path {{.WMTSLT22_DIR}} \
                 --tsv-out {{.DATA_DIR}}/wmtslt22.train_srfmonolingual.tsv \
@@ -480,7 +480,7 @@ tasks:
                 --translation-lang de
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/generate_tsv.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/generate_tsv.py \
                 --dataset wmt_slt22 \
                 --path {{.WMTSLT22_DIR}} \
                 --tsv-out {{.DATA_DIR}}/wmtslt22.mediapipe.dev_dsgs-de.tsv \
@@ -490,7 +490,7 @@ tasks:
                 --translation-lang de
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/generate_tsv.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/generate_tsv.py \
                 --dataset wmt_slt22 \
                 --path {{.WMTSLT22_DIR}} \
                 --tsv-out {{.DATA_DIR}}/wmtslt22.mediapipe.dev_de-dsgs.tsv \
@@ -500,7 +500,7 @@ tasks:
                 --translation-lang de
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/generate_tsv.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/generate_tsv.py \
                 --dataset wmt_slt22 \
                 --path {{.WMTSLT22_DIR}} \
                 --tsv-out {{.DATA_DIR}}/wmtslt22.mediapipe.test_dsgs-de.tsv \
@@ -509,7 +509,7 @@ tasks:
                 --signs-lang dsgs
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/generate_tsv.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/generate_tsv.py \
                 --dataset wmt_slt22 \
                 --path {{.WMTSLT22_DIR}} \
                 --tsv-out {{.DATA_DIR}}/wmtslt22.test_de-dsgs.tsv \
@@ -552,28 +552,28 @@ tasks:
     cmds:
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/train_spm.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/train_spm.py \
                 --tsv-file {{.DATA_DIR}}/wmtslt22.mediapipe.train_focusnews.tsv \
                 --spm-prefix {{.DATA_DIR}}/wmtslt22.focusnews.unigram{{.VOCAB_SIZE}} \
                 --vocab-size {{.VOCAB_SIZE}} \
                 --vocab-type unigram
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/train_spm.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/train_spm.py \
                 --tsv-file {{.DATA_DIR}}/wmtslt22.mediapipe.train_srf.tsv \
                 --spm-prefix {{.DATA_DIR}}/wmtslt22.srf.unigram{{.VOCAB_SIZE}} \
                 --vocab-size {{.VOCAB_SIZE}} \
                 --vocab-type unigram
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/train_spm.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/train_spm.py \
                 --tsv-file {{.DATA_DIR}}/wmtslt22.mediapipe.train_focusnewsandsrf.tsv \
                 --spm-prefix {{.DATA_DIR}}/wmtslt22.focusnewsandsrf.unigram{{.VOCAB_SIZE}} \
                 --vocab-size {{.VOCAB_SIZE}} \
                 --vocab-type unigram
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/train_spm.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/train_spm.py \
                 --tsv-file {{.DATA_DIR}}/wmtslt22.train_srfmonolingual.tsv \
                 --spm-prefix {{.DATA_DIR}}/wmtslt22.srfmonolingual.unigram{{.VOCAB_SIZE}} \
                 --vocab-size {{.VOCAB_SIZE}} \
@@ -890,7 +890,7 @@ tasks:
     cmds:
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/generate_tsv.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/generate_tsv.py \
                 --dataset how2sign \
                 --path {{.DATA_DIR}} \
                 --tsv-out {{.SAVE_DIR}}/cvpr23.fairseq.mediapipe.train.how2sign.tsv \
@@ -900,7 +900,7 @@ tasks:
                 --translation-lang en
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/generate_tsv.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/generate_tsv.py \
                 --dataset how2sign \
                 --path {{.DATA_DIR}} \
                 --tsv-out {{.SAVE_DIR}}/cvpr23.fairseq.mediapipe.val.how2sign.tsv \
@@ -910,7 +910,7 @@ tasks:
                 --translation-lang en
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/generate_tsv.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/generate_tsv.py \
                 --dataset how2sign \
                 --path {{.DATA_DIR}} \
                 --tsv-out {{.SAVE_DIR}}/cvpr23.fairseq.mediapipe.test.how2sign.tsv \
@@ -940,7 +940,7 @@ tasks:
     cmds:
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/train_spm.py \
+              python {{.FAIRSEQ_ROOT}}/scripts/train_spm.py \
                 --tsv-file {{.SAVE_DIR}}/cvpr23.fairseq.mediapipe.train.how2sign.tsv \
                 --spm-prefix {{.SAVE_DIR}}/cvpr23.train.how2sign.unigram{{.VOCAB_SIZE}} \
                 --vocab-size {{.VOCAB_SIZE}} \
@@ -967,8 +967,8 @@ tasks:
     cmds:
       - cmd: |
               PYTHONPATH=$PYTHONPATH:{{.FAIRSEQ_ROOT}} \
-              python {{.FAIRSEQ_ROOT}}/examples/sign_language/scripts/train_spm.py \
-                --tsv-file {{.SAVE_DIR}}/cvpr23.fairseq.mediapipe.train.how2sign.tsv \
+              python {{.FAIRSEQ_ROOT}}/scripts/train_spm.py \
+                --tsv-file {{.SAVE_DIR}}/cvpr23.fairseq.i3d.train.how2sign.tsv \
                 --spm-prefix {{.SAVE_DIR}}/vocab/cvpr23.train.how2sign.unigram{{.VOCAB_SIZE}}_lowercased \
                 --vocab-size {{.VOCAB_SIZE}} \
                 --vocab-type unigram \

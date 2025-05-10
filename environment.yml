@@ -1,4 +1,4 @@
-name: slt-how2sign-wicv2023
+name: how2sign
 
 channels:
   - pytorch
@@ -38,7 +38,7 @@ dependencies:
   - conda-forge::sacremoses=0.0.53  
 
   - pip:
-      - mediapipe==0.8.10.1
+      - mediapipe==0.10.11
       - pose-format==0.1.0
       - vidgear==0.2.6
       - truecase==0.0.14

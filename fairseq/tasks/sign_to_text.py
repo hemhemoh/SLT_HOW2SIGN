@@ -27,6 +27,9 @@ from fairseq.scoring.chrf import ChrFScorerConfig
 from fairseq.tasks import FairseqTask, register_task
 from sacremoses import MosesDetokenizer
 import truecase
+import nltk
+nltk.download('punkt_tab')
+
 
 EVAL_BLEU_ORDER = 4
 
@@ -305,7 +308,7 @@ class SignToTextTask(FairseqTask):
 
     def valid_step(self, sample, model, criterion):
         loss, sample_size, logging_output = super().valid_step(sample, model, criterion)
-        blacklisted_words = 'examples/sign_language/scripts/blacklisted_words.txt'
+        blacklisted_words = 'scripts/blacklisted_words.txt'
         path_to_tasks = os.path.dirname(os.path.realpath(__file__)).split("/fairseq/tasks")[0]
         blacklisted_words_path = os.path.join(path_to_tasks, blacklisted_words)
         with open(blacklisted_words_path, 'r') as file:

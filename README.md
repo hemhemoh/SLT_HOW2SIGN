@@ -107,7 +107,7 @@ SPM_MODEL: path/to/cvpr23.train.how2sign.unigram7000_lowercased.model
 The `task generate` generates a folder in the output file called `generates/partition` with a checkpoint.out file that contains both the generations and the metrics for the partition. 
 Script `python scripts/analyze_fairseq_generate.py` analizes raw data and outputs final BLEU and rBLEU scores, call it after the `task generate` in the following manner:
 ```bash
-python scripts/analyze_fairseq_generate.py --generates-dir path/to/generates --vocab-dir path/to/vocab --experiment baseline_6_3_dp03_wd_2 --partition test --checkpoint checkpoint_best
+python scripts/analyze_fairseq_generate.py --generates-dir data/how2sign/models --vocab-dir data/how2sign/models --experiment baseline_6_3_dp03_wd_2 --partition test --checkpoint checkpoint_best
 ```
 The weigts of our best-performing model can be found on [the dataverse](https://dataverse.csuc.cat/dataset.xhtml?persistentId=doi%3A10.34810%2Fdata693)
 

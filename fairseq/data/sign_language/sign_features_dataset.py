@@ -103,8 +103,13 @@ class SignFeatsDataset(FairseqDataset):
         offset = self.offsets[index]
         length = self.sizes[index]
         
+        # Prepend I3D_DIR environment variable to the feat_file path
+        import os
+        i3d_dir = os.environ.get('I3D_DIR', '')
+        full_path = os.path.join(i3d_dir, feats_file)
+        
         if self.feats_type == SignFeatsType.mediapipe:
-            with open(feats_file, "rb") as f:
+            with open(full_path, "rb") as f:
                 pose = Pose.read(f.read())
             frames_list = list(range(offset, offset+length))
 
@@ -114,7 +119,7 @@ class SignFeatsDataset(FairseqDataset):
             pose.body = pose.body.select_frames(frames_list)
             pose = self.postprocess(pose)
         elif self.feats_type == SignFeatsType.i3d or self.feats_type == SignFeatsType.openpose:
-            with open(feats_file, "rb") as f:
+            with open(full_path, "rb") as f:
                 pose = np.load(f)
             pose = self.postprocess(pose)
 

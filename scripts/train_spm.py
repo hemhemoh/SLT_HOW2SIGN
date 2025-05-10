@@ -9,7 +9,7 @@ from tempfile import NamedTemporaryFile
 
 import pandas as pd
 
-from examples.speech_to_text.data_utils import gen_vocab
+from data_utils import gen_vocab
 
 log = logging.getLogger(__name__)
 

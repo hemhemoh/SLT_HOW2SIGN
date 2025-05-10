@@ -23,9 +23,9 @@ def load_h2s(path):
 
 
 #I will need to pass this as a parameter
-sentence_path = {'val': "/mnt/gpid08/users/ltarres/CVPR23_experiments/cvpr23.fairseq.mediapipe.val.how2sign.tsv",
-                      'test': "/mnt/gpid08/users/ltarres/CVPR23_experiments/cvpr23.fairseq.mediapipe.test.how2sign.tsv",
-                      'train': "/mnt/gpid08/users/ltarres/CVPR23_experiments/cvpr23.fairseq.mediapipe.train.how2sign.tsv"
+sentence_path = {'val': "cvpr23.fairseq.mediapipe.val.how2sign.tsv",
+                      'test': "cvpr23.fairseq.mediapipe.test.how2sign.tsv",
+                      'train': "cvpr23.fairseq.mediapipe.train.how2sign.tsv"
                 }
 #TODO: Check the paths, to see if they are the final ones, and aligned ones that I am using in fairseq.
 
@@ -135,7 +135,7 @@ print(punctuator_model.punctuation(text)[0])
 #pip install nltk
 import truecase
 import nltk
-nltk.download('punkt')
+nltk.download('punkt_tab')
 truecase.get_true_case('hey, what is the weather in new york?')
 
 

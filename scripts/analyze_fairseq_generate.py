@@ -3,6 +3,9 @@ import argparse
 import os
 from sacremoses import MosesDetokenizer
 import truecase
+import nltk
+nltk.download('punkt_tab')
+
 from fairseq.data import encoders
 import sacrebleu
 #from tqdm import tqdm
@@ -25,7 +28,7 @@ def parse_generate_file(generate_file, backlist_file, partition, path_to_vocab):
     
     config = SignToTextConfig()
     config.bpe_sentencepiece_model = path_to_vocab
-    config.data = "/home/usuaris/imatge/ltarres/wicv2023/how2sign/i3d_features"
+    config.data = "/home/devtrio3/SLT_HOW2SIGN/data/how2sign/i3d_features"
     task = SignToTextTask.setup_task(config)
     task.load_dataset(f"cvpr23.fairseq.i3d.{partition}.how2sign")
     bpe_tokenizer = encoders.build_bpe(

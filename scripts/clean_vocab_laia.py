@@ -19,8 +19,8 @@ from spellchecker import SpellChecker
 from dbpunctuator.inference import Inference, InferenceArguments
 from dbpunctuator.utils import DEFAULT_ENGLISH_TAG_PUNCTUATOR_MAP
 import truecase
-#import nltk
-#nltk.download('punkt') #i think I have already done this once so it is not necessary anymore.
+import nltk
+nltk.download('punkt_tab') #i think I have already done this once so it is not necessary anymore.
 
 
 def load_h2s(path):

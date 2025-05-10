@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 import sys
 import truecase
+import nltk
+nltk.download('punkt_tab')
+
 from sacremoses import MosesDetokenizer
 
 def decode(text, moses_detok):
